@@ -1,0 +1,61 @@
+/*
+Subarray with 0 sum
+Program Link : https://onlinegdb.com/a9XggaJ7t
+
+Given an array of positive and negative numbers, the task is to find if there is a subarray (of size at least one) with 0 sum.
+
+Examples: 
+
+Input: {4, 2, -3, 1, 6}
+Output: true 
+Explanation:
+There is a subarray with zero sum from index 1 to 3.
+
+Input: {4, 2, 0, 1, 6}
+Output: true
+Explanation: The third element is zero. A single element is also a sub-array.
+
+Input: {-3, 2, 3, 1, 6}
+Output: false
+
+*/
+
+public class Main
+{
+
+  public static boolean sumOfSubArrayisZero (int[]a)
+  {
+    int al = a.length;
+
+
+    for (int i = 0; i < al; i++)
+      {
+	int sum = a[i];
+	if (sum == 0)
+	  {
+
+	    return true;
+	  }
+
+	for (int j = i + 1; j < al; j++)
+	  {
+	    sum += a[j];
+	    if (sum == 0)
+
+	      return true;
+	  }
+      }
+
+    return false;
+  }
+  public static void main (String[]args)
+  {
+    int[] a = { -3, 3, 1, 6 };
+    if (sumOfSubArrayisZero (a))
+      {
+	System.out.print ("true");
+      }
+    else
+      System.out.print ("false");
+  }
+}
